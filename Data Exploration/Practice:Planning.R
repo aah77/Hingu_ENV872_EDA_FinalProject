@@ -46,12 +46,21 @@ chi_plot <-ggplot(chi_na.omit, aes(x=Below_evel, y=LowBi_ight, color = comm_area
 print(chi_plot)
 
 
-#make a heat/density map of low birth weight prevalence across chicago community areas 
+#make a heat/density map of low birth weight prevalence across chicago community areas
 
 ggplot()+geom_sf(data=chi_h_ind.sf, aes(fill= LowBi_ight))+ scale_fill_continuous(name="Low Birth Weight Prevalence")+
   ggtitle("Low Birth Weight Prevalence in Chicago Community Areas", subtitle = "Aman Hingu")
 
+#make heat/spatial maps of other independent variables. 
 
+ggplot()+geom_sf(data=chi_h_ind.sf, aes(fill= Unemp_ment))+ scale_fill_continuous(name="Unemployment Rate")+
+  ggtitle("Unemployment Rates in Chicago Community Areas", subtitle = "Aman Hingu")
+
+ggplot()+geom_sf(data=chi_h_ind.sf, aes(fill= Below_evel))+ scale_fill_continuous(name="Proportion Under Poverty Level")+
+  ggtitle("Portion under Poverty Level in Chicago Community Areas", subtitle = "Aman Hingu")
+
+ggplot()+geom_sf(data=chi_h_ind.sf, aes(fill= NoHig_loma))+ scale_fill_continuous(name="Educational Attainment")+
+  ggtitle("Educational Attainment in Chicago Community Areas", subtitle = "Aman Hingu")
 
 summary(chi_h_ind.df)
 #no na's in dataset
@@ -107,3 +116,10 @@ par(mfrow = c(2,2), mar=c(4,4,4,4))
 plot(chi_select_lm4)
 par(mfrow = c(1,1))
 
+
+
+
+
+
+
+           
